@@ -1,6 +1,7 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card'
-// import Icon from '@material-ui/icons/Star';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import AIcon from '@material-ui/icons/AccessAlarm';
 
 class CardTile extends React.Component {
     render() {
@@ -10,7 +11,6 @@ class CardTile extends React.Component {
                     <Card.Body>
                         <Card.Title>{this.props.title}</Card.Title>
                         <Card.Text style={{ fontSize: "48px" }}>
-                            {/* <Icon>Star</Icon> */}
 
                             {this.props.value}
                         </Card.Text>
