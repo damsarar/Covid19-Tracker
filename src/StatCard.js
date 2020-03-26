@@ -7,7 +7,7 @@ class CardTile extends React.Component {
     render() {
         return (
             <div>
-                <Card text="white" style={{ minWidth: '15rem', backgroundColor: this.props.color }}>
+                <Card text="white" style={{ backgroundColor: this.props.color }}>
                     <Card.Body>
                         <Card.Title>{this.props.title}</Card.Title>
                         <Card.Text style={{ fontSize: "48px" }}>

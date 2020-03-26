@@ -132,7 +132,7 @@ class Homepage extends React.Component {
                             <Col xs={12} md={6} className="pr-0 mt-2">
                                 <Card text="white" style={{ minWidth: '15rem', backgroundColor: "#D1A000" }}>
                                     <Card.Body>
-                                        <Card.Title>Confirmed COVID-19 cases currently on treatment at the Hospitals in Sri Lanka</Card.Title>
+                                        <Card.Title>Active COVID-19 cases in Sri Lanka</Card.Title>
                                         <Card.Text style={{ fontSize: "48px" }}>
                                             {this.state.dataArray.local_active_cases}
                                         </Card.Text>
@@ -142,7 +142,7 @@ class Homepage extends React.Component {
                             <Col xs={12} md={6} className="pr-0 mt-2">
                                 <Card text="white" style={{ minWidth: '15rem', backgroundColor: "#D1A000" }}>
                                     <Card.Body>
-                                        <Card.Title>Total suspected or confirmed COVID-19 cases currently hospitalized in Sri Lanka</Card.Title>
+                                        <Card.Title>Total number of individuals hospitalized in Sri Lanka</Card.Title>
                                         <Card.Text style={{ fontSize: "48px" }}>
                                             {this.state.dataArray.local_total_number_of_individuals_in_hospitals}
                                         </Card.Text>
@@ -176,7 +176,16 @@ class Homepage extends React.Component {
 
 
                 </div>
-                {console.log(this.state.hospitalArray)}
+                <Navbar bg="dark" variant="dark">
+                    <Navbar.Brand href="">Source -</Navbar.Brand>
+                    <Nav className="mr-auto">
+                        <Nav.Link
+                            href="https://hpb.health.gov.lk/en/api-documentation?fbclid=IwAR0JWu_XtDsXHk5ZzN0xkYDd2V2Hc5-tQ7XHTO7Oh2FqJberHSNMbD1gzzs">
+                            Health Promotion Bureau
+                            </Nav.Link>
+                    </Nav>
+
+                </Navbar>
 
 
             </div >
