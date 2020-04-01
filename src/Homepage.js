@@ -1,6 +1,8 @@
 import React from 'react'
+
 import StatCard from './StatCard'
 import HospitalCard from './HospitalCard'
+import ConfirmedStatChart from './ConfirmedStatChart'
 import { Container, Card } from 'react-bootstrap'
 import { Row } from 'react-bootstrap'
 import { Col } from 'react-bootstrap'
@@ -9,17 +11,12 @@ import { Nav } from 'react-bootstrap';
 
 import './App.css';
 
-// import { Item } from 'react-bootstrap/lib/Breadcrumb'
-// import { Jumbotron } from 'react-bootstrap'
-// import { Button } from 'react-bootstrap'
-
-
 class Homepage extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
             dataArray: [],
-            hospitalArray: []
+            hospitalArray: [],
         }
     }
 
@@ -121,6 +118,18 @@ class Homepage extends React.Component {
                     </Container>
                 </div>
                 <div>
+                    <Container style={{ width: "100%" }} className="mt-5">
+                        <Row style={{ width: "100%", }} className="pr-0 mt-2 ">
+                            <Col>
+                                <h5>Growth of COVID-19 confirmed cases in Sri Lanka</h5>
+                            </Col>
+
+                        </Row>
+                        <ConfirmedStatChart ></ConfirmedStatChart>
+                    </Container>
+
+                </div>
+                <div>
                     <Container style={{ width: "100%" }} className="pr-0 mt-5">
                         <Row style={{ width: "100%", }} className="pr-0 mt-2 ">
                             <Col>
@@ -177,11 +186,15 @@ class Homepage extends React.Component {
 
                 </div>
                 <Navbar bg="dark" variant="dark">
-                    <Navbar.Brand href="">Source -</Navbar.Brand>
+                    <Navbar.Brand href="">Sources -</Navbar.Brand>
                     <Nav className="mr-auto">
                         <Nav.Link
                             href="https://hpb.health.gov.lk/en/api-documentation?fbclid=IwAR0JWu_XtDsXHk5ZzN0xkYDd2V2Hc5-tQ7XHTO7Oh2FqJberHSNMbD1gzzs">
                             Health Promotion Bureau
+                            </Nav.Link>
+                        <Nav.Link
+                            href="https://documenter.getpostman.com/view/10808728/SzS8rjbc?version=latest#27454960-ea1c-4b91-a0b6-0468bb4e6712">
+                            CORONAVIRUS COVID19 API - getpostman.com
                             </Nav.Link>
                     </Nav>
 
