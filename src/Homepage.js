@@ -3,6 +3,7 @@ import React from 'react'
 import StatCard from './StatCard'
 import HospitalCard from './HospitalCard'
 import ConfirmedStatChart from './ConfirmedStatChart'
+import DayByDayChart from './DayByDayChart'
 import { Container, Card } from 'react-bootstrap'
 import { Row } from 'react-bootstrap'
 import { Col } from 'react-bootstrap'
@@ -129,6 +130,20 @@ class Homepage extends React.Component {
                     </Container>
 
                 </div>
+
+                <div>
+                    <Container style={{ width: "100%" }} className="mt-5">
+                        <Row style={{ width: "100%", }} className="pr-0 mt-2 ">
+                            <Col>
+                                <h5>Daily count of COVID-19 confirmed cases in Sri Lanka</h5>
+                            </Col>
+
+                        </Row>
+                        <DayByDayChart></DayByDayChart>
+                    </Container>
+
+                </div>
+
                 <div>
                     <Container style={{ width: "100%" }} className="pr-0 mt-5">
                         <Row style={{ width: "100%", }} className="pr-0 mt-2 ">

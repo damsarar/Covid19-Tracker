@@ -4,7 +4,7 @@ import moment from 'moment'
 import { Card } from 'react-bootstrap'
 let myLineChart
 
-class ConfirmedStatChart extends React.Component {
+class StatChart extends React.Component {
     constructor(props) {
         super(props)
 
@@ -12,6 +12,7 @@ class ConfirmedStatChart extends React.Component {
             chartArray: [],
             chartLablesArray: [],
             chartDataArray: [],
+            chartCasesTotal: []
         }
     }
     chartRef = React.createRef()
@@ -27,14 +28,28 @@ class ConfirmedStatChart extends React.Component {
                 this.state.chartArray.map((data, key) => {
                     var date = moment(data.Date).format("MM / DD")
                     this.state.chartLablesArray.push(date)
-                    this.state.chartDataArray.push(data.Cases)
+
+                    if ((key - 1) === -1) {
+                        this.state.chartDataArray.push(this.state.chartArray[key].Cases)
+                        // this.state.chartCasesTotal.push(this.state.chartArray[key].Cases)
+                    } else {
+                        const diffetence = this.state.chartArray[key].Cases - this.state.chartArray[key - 1].Cases
+                        // this.state.chartCasesTotal.push(diffetence)
+                        this.state.chartDataArray.push(diffetence)
+                        console.log(diffetence)
+                    }
+
+                    // console.log(key - 1)
                 })
 
                 this.buildChart();
 
+                console.log(this.state.chartCasesTotal)
+
             }).catch(error => {
                 console.log(error)
             })
+
     }
 
     buildChart = () => {
@@ -43,18 +58,25 @@ class ConfirmedStatChart extends React.Component {
         const data = this.state.chartDataArray;
 
         myLineChart = new Chart(myChartRef, {
-            type: "line",
+            type: "bar",
             data: {
                 //Bring in data
                 labels: lables,
                 datasets: [
                     {
-                        label: "Total number of COVID-19 confirmed cases",
+                        label: "Total number of COVID-19 confirmed cases on a day",
                         data: data,
-                        backgroundColor: 'rgba(255, 206, 86, 0.2)',
-                        borderColor: 'rgba(255, 206, 86, 1)',
-                    },
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
 
+
+                    }, {
+                        label: 'Total number of COVID-19 confirmed cases on a day',
+                        data: data,
+                        type: 'line',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        lineTension: '0.2',
+                        order: 1
+                    }
                 ]
             },
             options: {
@@ -65,6 +87,11 @@ class ConfirmedStatChart extends React.Component {
 
 
     render() {
+
+        // console.log(this.props.lables)
+        // console.log(this.props.data)
+
+
         return (
             <div>
                 <div>
@@ -85,4 +112,4 @@ class ConfirmedStatChart extends React.Component {
     }
 }
 
-export default ConfirmedStatChart
+export default StatChart
