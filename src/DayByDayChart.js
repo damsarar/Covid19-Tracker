@@ -4,15 +4,14 @@ import moment from 'moment'
 import { Card } from 'react-bootstrap'
 let myLineChart
 
-class StatChart extends React.Component {
+class DayByDayChart extends React.Component {
     constructor(props) {
         super(props)
 
         this.state = {
             chartArray: [],
             chartLablesArray: [],
-            chartDataArray: [],
-            chartCasesTotal: []
+            chartDataArray: []
         }
     }
     chartRef = React.createRef()
@@ -31,15 +30,11 @@ class StatChart extends React.Component {
 
                     if ((key - 1) === -1) {
                         this.state.chartDataArray.push(this.state.chartArray[key].Cases)
-                        // this.state.chartCasesTotal.push(this.state.chartArray[key].Cases)
                     } else {
                         const diffetence = this.state.chartArray[key].Cases - this.state.chartArray[key - 1].Cases
-                        // this.state.chartCasesTotal.push(diffetence)
                         this.state.chartDataArray.push(diffetence)
                         console.log(diffetence)
                     }
-
-                    // console.log(key - 1)
                 })
 
                 this.buildChart();
@@ -60,14 +55,12 @@ class StatChart extends React.Component {
         myLineChart = new Chart(myChartRef, {
             type: "bar",
             data: {
-                //Bring in data
                 labels: lables,
                 datasets: [
                     {
-                        label: "Total number of COVID-19 confirmed cases on a day",
+                        label: "",
                         data: data,
                         backgroundColor: 'rgba(54, 162, 235, 0.2)',
-
 
                     }, {
                         label: 'Total number of COVID-19 confirmed cases on a day',
@@ -80,18 +73,12 @@ class StatChart extends React.Component {
                 ]
             },
             options: {
-                //Customize chart options
             }
         });
     }
 
 
     render() {
-
-        // console.log(this.props.lables)
-        // console.log(this.props.data)
-
-
         return (
             <div>
                 <div>
@@ -112,4 +99,4 @@ class StatChart extends React.Component {
     }
 }
 
-export default StatChart
+export default DayByDayChart
