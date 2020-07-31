@@ -5,18 +5,26 @@ import Card from 'react-bootstrap/Card'
 
 class CardTile extends React.Component {
     render() {
-        return (
-            <div>
-                <Card text="white" style={{ backgroundColor: this.props.color }}>
-                    <Card.Body>
-                        <Card.Title>{this.props.title}</Card.Title>
-                        <Card.Text style={{ fontSize: "48px" }}>
+        return ( <
+            div >
+            <
+            Card text = "white"
+            style = {
+                { backgroundColor: this.props.color }
+            } >
+            <
+            Card.Body >
+            <
+            Card.Title > { this.props.title } < /Card.Title> <
+            Card.Text style = {
+                { fontSize: "36px" }
+            } >
 
-                            {this.props.value}
-                        </Card.Text>
-                    </Card.Body>
-                </Card>
-            </div>
+            { this.props.value } <
+            /Card.Text> < /
+            Card.Body > <
+            /Card> < /
+            div >
 
         )
     }

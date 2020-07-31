@@ -89,11 +89,8 @@ class DayByDayChart extends React.Component {
                                 ref={this.chartRef}
                             />
                         </Card.Body>
-
                     </Card>
-
                 </div>
-
             </div>
         )
     }
