@@ -63,11 +63,11 @@ class Homepage extends React.Component {
                                     </Row>
                                     <Row style={{ width: "100%" }} className="pr-0">
                                         <Col xs={12} md={6} className="mt-2 pr-0" >
-                                            <StatCard title="New Cases" value={this.state.dataArray.local_new_cases} color="#025E97"></StatCard>
+                                            <StatCard title="New Cases" value={this.seperator(this.state.dataArray.local_new_cases)} color="#025E97"></StatCard>
                                         </Col>
 
                                         <Col xs={12} md={6} className="mt-2 pr-0">
-                                            <StatCard title="Total Cases" value={this.state.dataArray.local_total_cases} color="#FF9700 "></StatCard>
+                                            <StatCard title="Total Cases" value={this.seperator(this.state.dataArray.local_total_cases)} color="#FF9700 "></StatCard>
                                         </Col>
 
 
