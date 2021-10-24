@@ -74,10 +74,10 @@ class Homepage extends React.Component {
                                     </Row>
                                     <Row style={{ width: "100%" }} className="pr-0">
                                         <Col xs={12} md={6} className="mt-2 pr-0">
-                                            <StatCard title="Total Deaths" value={this.state.dataArray.local_deaths} color="#D80505"></StatCard>
+                                            <StatCard title="Total Deaths" value={this.seperator(this.state.dataArray.local_deaths)} color="#D80505"></StatCard>
                                         </Col>
                                         <Col xs={12} md={6} className="mt-2 pr-0">
-                                            <StatCard title="Total Recovered" value={this.state.dataArray.local_recovered} color="#5AA001"></StatCard>
+                                            <StatCard title="Total Recovered" value={this.seperator(this.state.dataArray.local_recovered)} color="#5AA001"></StatCard>
                                         </Col>
 
                                     </Row>
