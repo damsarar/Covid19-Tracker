@@ -1,9 +1,9 @@
 const IS_DEBUGGING = true;
-export const log = (title = "", data1 = null, data2 = null, type = "debug") => {
+export const log = (title = "", data1 = null, type = "debug") => {
   if (IS_DEBUGGING && type === "debug") {
-    console.debug(title, data1, data2);
+    console.debug(title, data1);
   }
   if (IS_DEBUGGING && type === "error") {
-    console.error(title, data1, data2);
+    console.error(title, data1);
   }
 };
