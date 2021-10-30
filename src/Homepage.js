@@ -158,7 +158,7 @@ class Homepage extends React.Component {
                                     <Card.Body>
                                         <Card.Title>Active COVID-19 cases in Sri Lanka</Card.Title>
                                         <Card.Text style={{ fontSize: "48px" }}>
-                                            {this.state.dataArray.local_active_cases}
+                                            {this.seperator(this.state.dataArray.local_active_cases)}
                                         </Card.Text>
                                     </Card.Body>
                                 </Card>
@@ -168,7 +168,7 @@ class Homepage extends React.Component {
                                     <Card.Body>
                                         <Card.Title>Total number of individuals hospitalized in Sri Lanka</Card.Title>
                                         <Card.Text style={{ fontSize: "48px" }}>
-                                            {this.state.dataArray.local_total_number_of_individuals_in_hospitals}
+                                            {this.seperator(this.state.dataArray.local_total_number_of_individuals_in_hospitals)}
                                         </Card.Text>
                                     </Card.Body>
                                 </Card>
