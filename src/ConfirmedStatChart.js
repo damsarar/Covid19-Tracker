@@ -24,7 +24,7 @@ class ConfirmedStatChart extends React.Component {
           chartArray: results,
         });
 
-        this.state.chartArray.map((data, key) => {
+        this.state.chartArray.forEach((data, key) => {
           var date = moment(data.Date).format("MM / DD");
           this.state.chartLabelsArray.push(date);
           this.state.chartDataArray.push(data.Cases);
