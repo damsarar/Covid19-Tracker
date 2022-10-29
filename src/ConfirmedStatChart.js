@@ -3,7 +3,6 @@ import Chart from "chart.js";
 import moment from "moment";
 import { Card } from "react-bootstrap";
 import { log } from "./logger";
-let myLineChart;
 
 class ConfirmedStatChart extends React.Component {
   constructor(props) {
@@ -43,7 +42,7 @@ class ConfirmedStatChart extends React.Component {
     const labels = this.state.chartLabelsArray;
     const data = this.state.chartDataArray;
 
-    myLineChart = new Chart(myChartRef, {
+    new Chart(myChartRef, {
       type: "line",
       data: {
         //Bring in data

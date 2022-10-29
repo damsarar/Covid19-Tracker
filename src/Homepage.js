@@ -1,6 +1,5 @@
 import React from "react";
 import StatCard from "./StatCard";
-import HospitalCard from "./HospitalCard";
 import ConfirmedStatChart from "./ConfirmedStatChart";
 import DayByDayChart from "./DayByDayChart";
 import { Container, Card } from "react-bootstrap";

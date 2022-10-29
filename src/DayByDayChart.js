@@ -3,7 +3,6 @@ import Chart from "chart.js";
 import moment from "moment";
 import { Card } from "react-bootstrap";
 import { log } from "./logger";
-let myLineChart;
 
 class DayByDayChart extends React.Component {
   constructor(props) {
@@ -54,7 +53,7 @@ class DayByDayChart extends React.Component {
     const labels = this.state.chartLabelsArray;
     const data = this.state.chartDataArray;
 
-    myLineChart = new Chart(myChartRef, {
+    new Chart(myChartRef, {
       type: "bar",
       data: {
         labels: labels,
