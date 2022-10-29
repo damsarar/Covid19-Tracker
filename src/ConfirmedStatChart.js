@@ -11,7 +11,7 @@ class ConfirmedStatChart extends React.Component {
 
     this.state = {
       chartArray: [],
-      chartLablesArray: [],
+      chartLabelsArray: [],
       chartDataArray: [],
     };
   }
@@ -27,7 +27,7 @@ class ConfirmedStatChart extends React.Component {
 
         this.state.chartArray.map((data, key) => {
           var date = moment(data.Date).format("MM / DD");
-          this.state.chartLablesArray.push(date);
+          this.state.chartLabelsArray.push(date);
           this.state.chartDataArray.push(data.Cases);
         });
 
@@ -40,14 +40,14 @@ class ConfirmedStatChart extends React.Component {
 
   buildChart = () => {
     const myChartRef = this.chartRef.current.getContext("2d");
-    const lables = this.state.chartLablesArray;
+    const labels = this.state.chartLabelsArray;
     const data = this.state.chartDataArray;
 
     myLineChart = new Chart(myChartRef, {
       type: "line",
       data: {
         //Bring in data
-        labels: lables,
+        labels: labels,
         datasets: [
           {
             label: "Total number of COVID-19 confirmed cases",
