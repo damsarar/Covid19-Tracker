@@ -11,7 +11,7 @@ class DayByDayChart extends React.Component {
 
     this.state = {
       chartArray: [],
-      chartLablesArray: [],
+      chartLabelsArray: [],
       chartDataArray: [],
     };
   }
@@ -27,16 +27,16 @@ class DayByDayChart extends React.Component {
 
         this.state.chartArray.map((data, key) => {
           var date = moment(data.Date).format("MM / DD");
-          this.state.chartLablesArray.push(date);
+          this.state.chartLabelsArray.push(date);
 
           if (key - 1 === -1) {
             this.state.chartDataArray.push(this.state.chartArray[key].Cases);
           } else {
-            const diffetence =
+            const difference =
               this.state.chartArray[key].Cases -
               this.state.chartArray[key - 1].Cases;
-            this.state.chartDataArray.push(diffetence);
-            log(diffetence);
+            this.state.chartDataArray.push(difference);
+            log(difference);
           }
         });
 
@@ -51,13 +51,13 @@ class DayByDayChart extends React.Component {
 
   buildChart = () => {
     const myChartRef = this.chartRef.current.getContext("2d");
-    const lables = this.state.chartLablesArray;
+    const labels = this.state.chartLabelsArray;
     const data = this.state.chartDataArray;
 
     myLineChart = new Chart(myChartRef, {
       type: "bar",
       data: {
-        labels: lables,
+        labels: labels,
         datasets: [
           {
             label: "",
