@@ -1,4 +1,23 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# COVID-19 Tracker
+
+## Description
+
+This project is a web application which shows the latest statistical data on the reported COVID-19 case in Sri Lanka and around the world.
+
+## Statistics
+
+-   Sri Lanka
+    -   New Cases
+    -   Total Cases
+    -   Total Recovered
+    -   Total Deaths
+-   Global
+    -   New Cases
+    -   Total Cases
+    -   Total Recovered
+    -   Total Deaths
+
+<!-- This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
@@ -65,4 +84,4 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 
 ### `yarn build` fails to minify
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify -->
