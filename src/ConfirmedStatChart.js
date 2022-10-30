@@ -34,7 +34,8 @@ class ConfirmedStatChart extends React.Component {
         });
 
         this.buildChart();
-        return;
+
+        log(this.state.chartDataArray);
     }
 
     async componentDidMount() {
