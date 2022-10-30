@@ -27,23 +27,24 @@ class DayByDayChart extends React.Component {
             chartArray: results,
         });
 
-        this.state.chartArray.map((data, key) => {
+        this.state.chartArray.forEach((data, key) => {
             var date = moment(data.Date).format("MM / DD");
-            this.state.chartLablesArray.push(date);
+            this.state.chartLabelsArray.push(date);
 
             if (key - 1 === -1) {
                 this.state.chartDataArray.push(this.state.chartArray[key].Cases);
             } else {
-                const diffetence = this.state.chartArray[key].Cases - this.state.chartArray[key - 1].Cases;
-                this.state.chartDataArray.push(diffetence);
-                console.log(diffetence);
+                const difference = this.state.chartArray[key].Cases - this.state.chartArray[key - 1].Cases;
+                this.state.chartDataArray.push(difference);
+                log(difference);
             }
         });
 
         this.buildChart();
+        log(this.state.chartCasesTotal);
     }
 
-    async asynccomponentDidMount() {
+    async componentDidMount() {
         try {
             const result = await this.fetchConfirmedCases();
             this.setChartData(result);
