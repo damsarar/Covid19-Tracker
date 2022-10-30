@@ -1,68 +1,74 @@
-import React from 'react'
-import Chart from 'chart.js'
-import moment from 'moment'
-import { Card } from 'react-bootstrap'
-let myLineChart
+import React from "react";
+import Chart from "chart.js";
+import moment from "moment";
+import { Card } from "react-bootstrap";
+import { log } from "./logger";
 
 class ConfirmedStatChart extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
 
         this.state = {
             chartArray: [],
-            chartLablesArray: [],
+            chartLabelsArray: [],
             chartDataArray: [],
-        }
+        };
     }
-    chartRef = React.createRef()
+    chartRef = React.createRef();
 
-    componentDidMount() {
-        fetch('https://api.covid19api.com/country/sri-lanka/status/confirmed/live')
-            .then(res => res.json())
-            .then(results => {
-                this.setState({
-                    chartArray: results
-                })
+    async fetchConfirmedCases() {
+        const COVID19_API_STATUS_SL_CONFIRMED_URL = "https://api.covid19api.com/country/sri-lanka/status/confirmed/live";
+        const response = await fetch(COVID19_API_STATUS_SL_CONFIRMED_URL);
+        return response.json();
+    }
 
-                this.state.chartArray.map((data, key) => {
-                    var date = moment(data.Date).format("MM / DD")
-                    this.state.chartLablesArray.push(date)
-                    this.state.chartDataArray.push(data.Cases)
-                })
+    setChartData(results) {
+        this.setState({
+            chartArray: results,
+        });
 
-                this.buildChart();
+        this.state.chartArray.forEach((data, key) => {
+            var date = moment(data.Date).format("MM / DD");
+            this.state.chartLabelsArray.push(date);
+            this.state.chartDataArray.push(data.Cases);
+        });
 
-            }).catch(error => {
-                console.log(error)
-            })
+        this.buildChart();
+    }
+
+    async componentDidMount() {
+        try {
+            const result = await this.fetchConfirmedCases();
+            this.setChartData(result);
+        } catch (err) {
+            console.error("ERROR:componentDidMount() =>", err);
+        }
     }
 
     buildChart = () => {
-        const myChartRef = this.chartRef.current.getContext('2d')
-        const lables = this.state.chartLablesArray
+        const myChartRef = this.chartRef.current.getContext("2d");
+        const labels = this.state.chartLabelsArray;
         const data = this.state.chartDataArray;
 
-        myLineChart = new Chart(myChartRef, {
+        new Chart(myChartRef, {
             type: "line",
             data: {
                 //Bring in data
-                labels: lables,
+                labels: labels,
                 datasets: [
                     {
                         label: "Total number of COVID-19 confirmed cases",
                         data: data,
-                        backgroundColor: 'rgba(255, 206, 86, 0.2)',
-                        borderColor: 'rgba(255, 206, 86, 1)',
+                        backgroundColor: "rgba(255, 206, 86, 0.2)",
+                        borderColor: "rgba(255, 206, 86, 1)",
                     },
-
-                ]
+                ],
             },
             options: {
                 //Customize chart options
-            }
+            },
         });
-    }
-
+    };
 
     render() {
         return (
@@ -70,19 +76,13 @@ class ConfirmedStatChart extends React.Component {
                 <div>
                     <Card border="secondary">
                         <Card.Body>
-                            <canvas
-                                id="myChart"
-                                ref={this.chartRef}
-                            />
+                            <canvas id="myChart" ref={this.chartRef} />
                         </Card.Body>
-
                     </Card>
-
                 </div>
-
             </div>
-        )
+        );
     }
 }
 
-export default ConfirmedStatChart
+export default ConfirmedStatChart;
